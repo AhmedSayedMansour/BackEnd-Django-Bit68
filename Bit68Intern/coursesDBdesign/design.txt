@@ -1,0 +1,11 @@
+Course(id, category_id, name, details, price, updated_at, created_at, language)
+
+CourseImage(id, image_path, course_id, )
+
+CourseVideo(id, video_path, course_id, name, description)
+
+Category(id, name)
+
+Insturctor(id, name, image, description, rate,)
+
+CourseInstructor(instructor_id, course_id)

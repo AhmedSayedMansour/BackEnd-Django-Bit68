@@ -1,11 +1,5 @@
 from django.db import models
 
-class Category(models.Model):
-    name = models.CharField(max_length=255)
-
-    def __str__(self) -> str:
-        return 'Category name : ' + self.name
-
 class Course(models.Model):
     name = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category, on_delete=models.CASCADE)

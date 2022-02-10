@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from courses_app import models
 
+
 class UserProfileSerializer(serializers.ModelSerializer):
     """Serializes a user profile object"""
     
@@ -23,3 +24,35 @@ class UserProfileSerializer(serializers.ModelSerializer):
         )
 
         return user
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    """Serializers courses"""
+
+    class Meta:
+        model = models.Course
+        fields = ('id', 'name','category_id','details','price','created_at','updated_at','language')
+
+
+class CategorySerializer(serializers.ModelSerializer):
+    """Serializers categories"""
+
+    class Meta:
+        model = models.Category
+        fields = ('id', 'name')
+
+
+class ArticleSerializer(serializers.ModelSerializer):
+    """Serializers articles"""
+
+    class Meta:
+        model = models.Category
+        fields = ('id', 'title', 'body')
+
+
+class PatenerSerializer(serializers.ModelSerializer):
+    """Serializers parteners"""
+
+    class Meta:
+        model = models.Category
+        fields = ('id', 'name', 'logo')

@@ -1,12 +1,18 @@
 from django.db import models
 
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
 class Course(models.Model):
     name = models.CharField(max_length=255)
-    category_id = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category_id = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="courses")
     details = models.TextField()
     price = models.FloatField()
-    updated_at = models.DateField()
-    created_at = models.DateField()
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
     language = models.CharField(max_length=16)
 
     def __str__(self) -> str:
@@ -14,14 +20,14 @@ class Course(models.Model):
 
 class CourseImage(models.Model):
     image_path = models.FilePathField()
-    course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course_id = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="course_images")
 
     def __str__(self) -> str:
         return 'Course name : ' + self.course_id.name
 
 class CourseVideo(models.Model):
     video_path = models.FilePathField()
-    course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course_id = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="course_videos")
     name = models.CharField(max_length=255)
     description = models.TextField()
 
@@ -38,7 +44,7 @@ class Insturctor(models.Model):
         return 'Insturctor name : ' + self.name
 
 class CourseInstructor(models.Model):
-    instructor_id = models.ForeignKey(Insturctor, on_delete=models.CASCADE)
+    instructor_id = models.ForeignKey(Insturctor, on_delete=models.CASCADE, related_name="course_instructors")
     course_id = models.ForeignKey(Course, on_delete=models.CASCADE)
 
     def __str__(self) -> str:

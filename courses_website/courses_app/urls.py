@@ -7,7 +7,7 @@ router.register('profile', views.UserProfileViewSet)
 router.register('course', views.CourseViewSet)
 router.register('category', views.CategoryViewSet)
 router.register('article', views.ArticleViewSet)
-router.register('partener', views.PartnerViewSet)
+router.register('partner', views.PartnerViewSet)
 
 urlpatterns = [
     path('login/', views.UserLoginApiView.as_view()),

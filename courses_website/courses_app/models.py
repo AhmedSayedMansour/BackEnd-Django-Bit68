@@ -118,7 +118,7 @@ class Article(models.Model):
     def __str__(self) -> str:
         return 'Article tilte : ' + self.title
 
-class Partener(models.Model):
+class Partner(models.Model):
     name = models.CharField(max_length=255)
     logo = models.FilePathField()
 

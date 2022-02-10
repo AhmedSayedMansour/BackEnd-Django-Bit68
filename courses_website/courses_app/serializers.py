@@ -50,8 +50,8 @@ class ArticleSerializer(serializers.ModelSerializer):
         fields = ('id', 'title', 'body')
 
 
-class PatenerSerializer(serializers.ModelSerializer):
-    """Serializers parteners"""
+class PartnerSerializer(serializers.ModelSerializer):
+    """Serializers partners"""
 
     class Meta:
         model = models.Category

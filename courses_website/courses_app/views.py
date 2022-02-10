@@ -27,7 +27,6 @@ class UserLoginApiView(ObtainAuthToken):
 
 class CourseViewSet(viewsets.ModelViewSet):
     """Handles reading courses"""
-
     serializer_class = serializers.CourseSerializer
     queryset = models.Course.objects.all()
     #authentication_classes = ---
@@ -38,7 +37,6 @@ class CourseViewSet(viewsets.ModelViewSet):
 
 class CategoryViewSet(viewsets.ModelViewSet):
     """Handles reading categories"""
-
     serializer_class = serializers.CategorySerializer
     queryset = models.Category.objects.all()
     #authentication_classes = ---
@@ -49,7 +47,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
 class ArticleViewSet(viewsets.ModelViewSet):
     """Handles reading articles"""
-
     serializer_class = serializers.ArticleSerializer
     queryset = models.Article.objects.all()
     #authentication_classes = ---
